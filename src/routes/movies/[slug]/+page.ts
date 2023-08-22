@@ -17,8 +17,10 @@ export const load = (async ({ fetch, params }) => {
     const linklen = video_links.results.length - 1;
     const ytlink = video_links.results[linklen].key;
 
+    // movie details
     const movieDetails = await fetch(`https://api.themoviedb.org/3/movie/${params.slug}`, options);
+    const details = await movieDetails.json();
 
 
-    return { ytlink };
+    return { ytlink, details };
 }) satisfies PageLoad;
