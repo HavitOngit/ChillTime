@@ -12,15 +12,20 @@ const options = {
 };
 
 export const load = (async ({ fetch, params }) => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${params.slug}/videos`, options);
-    const video_links = await response.json();
+    const response = fetch(`https://api.themoviedb.org/3/movie/${params.slug}/videos`, options);
+
+    // movie details
+    const movieDetails = fetch(`https://api.themoviedb.org/3/movie/${params.slug}`, options);
+
+    // cast details 
+    const castdetails = fetch(`https://api.themoviedb.org/3/movie/${params.slug}/credits`, options);
+    const re = await Promise.all([response, movieDetails, castdetails])
+    const details = await re[1].json();
+    const actors = await re[2].json();
+    const video_links = await re[0].json();
     const linklen = video_links.results.length - 1;
     const ytlink = video_links.results[linklen].key;
 
-    // movie details
-    const movieDetails = await fetch(`https://api.themoviedb.org/3/movie/${params.slug}`, options);
-    const details = await movieDetails.json();
 
-
-    return { ytlink, details };
+    return { ytlink, details, actors };
 }) satisfies PageLoad;
