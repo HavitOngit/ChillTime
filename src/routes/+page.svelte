@@ -5,9 +5,10 @@
 	// console.log(results);
 </script>
 
+<nav>TRENDING TODAY</nav>
 <div class="home">
 	{#each results as movie}
-		<div>
+		<div class="movie">
 			<a href="\movies\{movie.id}">
 				<img src="https://image.tmdb.org/t/p/original/{movie.poster_path}" alt="not clickeble" />
 			</a>
@@ -26,8 +27,17 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 5%;
+		font-family: 'Times New Roman', Times, serif;
 	}
 	h3 {
 		text-align: center;
+	}
+	nav {
+		color: azure;
+		text-align: center;
+		font-size: xx-large;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		margin: 5%;
+		background-color: black;
 	}
 </style>

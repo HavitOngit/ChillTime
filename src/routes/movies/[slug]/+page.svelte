@@ -17,7 +17,7 @@
 	/>
 </head>
 
-<h1>{data.details.id}</h1>
+<!-- <h1>{data.details.id}</h1> -->
 <!-- svelte-ignore a11y-missing-attribute -->
 
 <div class="main">
@@ -27,14 +27,18 @@
 
 	<div class="details">
 		<div class="title">{data.details.title}</div>
-		<div class="description">{data.details.overview}</div>
+		<div class="description">
+			<span>STORY:</span>
+			{data.details.overview}
+		</div>
 		<div class="studio">
+			<span>COMPANIES:</span>
 			{#each data.details.production_companies as company}
 				{company.name} ,
 			{/each}
 		</div>
 		<div class="genres">
-			GENRES:
+			<span>GENRES:</span>
 			{#each data.details.genres as genre}
 				{genre.name} ,
 			{/each}
@@ -69,45 +73,56 @@
 
 	.main {
 		display: flex;
-		height: 70vh;
-		background-color: royalblue;
-		width: 90vw;
-		margin: 0 auto;
+		height: 75vh;
+		/* background-color: royalblue; */
+		margin: 10vh 25vh;
+		gap: 3%;
 	}
+
 	.image {
-		/* background-color: plum; */
-		width: 30%;
-		margin: 2% 3%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
-	img {
-		width: 90%;
-		height: 100%;
+	.image img {
+		margin-bottom: 12vh;
+		background-color: plum;
+		height: 70%;
+		width: auto;
 		border-radius: 10%;
-		/* margin: 10% 5%; */
 	}
+
 	.details {
-		overflow: hidden;
 		max-height: 60vh;
 		display: flex;
 		flex: 1;
 		flex-direction: column;
-		background-color: greenyellow;
+		gap: 2%;
+		/* background-color: greenyellow; */
 		width: 70%;
 		margin: 5% 0%;
 		margin-right: 5%;
 		font-family: 'Niramit', sans-serif;
 	}
 	.title {
-		font-size: 4rem;
-		background-color: gold;
+		font-size: 5vh;
+		/* background-color: gold; */
 	}
 	.description {
-		background-color: rgb(78, 255, 137);
+		min-width: 40vw;
+		padding: 1%;
+		/* background-color: rgb(78, 255, 137); */
 	}
 	.studio {
-		background-color: rgb(217, 65, 65);
+		padding: 1%;
+		/* background-color: rgb(217, 65, 65); */
 	}
 	.genres {
-		background-color: rgb(255, 0, 183);
+		padding: 1%;
+		/* background-color: rgb(255, 0, 183); */
+	}
+	span {
+		background-color: black;
+		color: azure;
 	}
 </style>

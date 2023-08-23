@@ -24,6 +24,7 @@
 		display: flex;
 		flex-direction: column;
 		text-align: center;
+		padding-top: 2vh;
 	}
 	img {
 		max-height: 15vh;
