@@ -86,6 +86,8 @@
 		/* margin: 10% 5%; */
 	}
 	.details {
+		overflow: hidden;
+		max-height: 60vh;
 		display: flex;
 		flex: 1;
 		flex-direction: column;

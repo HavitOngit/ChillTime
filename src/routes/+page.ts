@@ -1,7 +1,7 @@
 import type { PageLoad } from './$types';
 
 
-export const load = (async () => {
+export const load = (async ({ fetch }) => {
 
     const options = {
         method: 'GET',
@@ -14,7 +14,7 @@ export const load = (async () => {
     };
 
     const data = await fetch(
-        'https://api.themoviedb.org/4/discover/movie?include_adult=true&include_video=&language=en-US&page=1&with_cast&sort_by=popularity.desc',
+        'https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=&language=en-US&page=1&with_cast&sort_by=popularity.desc',
         options
     )
     const jsonData = await data.json()

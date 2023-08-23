@@ -9,7 +9,7 @@
 </script>
 
 <div class="profile">
-	<img src={actor_img} alt="actor" />
+	<a href="/actors/{cast.id}"><img src={actor_img} alt="actor" /></a>
 
 	<div class="charectar">
 		{cast.character}
@@ -21,6 +21,8 @@
 
 <style>
 	.profile {
+		display: flex;
+		flex-direction: column;
 		text-align: center;
 	}
 	img {
@@ -29,6 +31,7 @@
 		border-radius: 50%;
 	}
 	.charectar {
+		font-size: medium;
 	}
 	.name {
 		color: darkgray;
