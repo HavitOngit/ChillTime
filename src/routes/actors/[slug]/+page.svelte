@@ -21,6 +21,7 @@
 	</div>
 	<div class="detail">
 		<div class="name"><h1>{data.actordata.name}</h1></div>
+
 		<div class="bio"><h3>{data.actordata.biography}</h3></div>
 	</div>
 </div>
